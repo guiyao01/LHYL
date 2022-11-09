@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insp.cloudtest.dao.WarehouseMapper">
+
+    <insert id="insert" parameterType="com.insp.cloudtest.entity.ZgspPrepareWarehouseEntity">
+        insert into qualifiedwh (id,acceptancetype,billcode,checkdate,
+                                     supplier,transportmode,whmark,checkdateend)
+        values (#{id, jdbcType=VARCHAR}, #{acceptancetype,jdbcType=VARCHAR}, #{billcode,jdbcType=VARCHAR},
+                #{checkdate,jdbcType=TIMESTAMP},#{whmark,jdbcType=VARCHAR},
+                #{checkdateend,jdbcType=VARCHAR},#{whmark,jdbcType=VARCHAR},
+                #{checkdateend,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertWHItem" parameterType="com.insp.cloudtest.entity.ZgspPrepareWarehouseItemEntity">
+        insert into qualifiedwhitem (id,alreadynum,approvalnum,arrivalnum,availableamount,
+                                     batchid,buyer,commonname,currentnum,disabledate,
+                                     helpamount,mah,officalnum,origin,parentid,spec,specmodel,storagecode,
+                                     storetype,temptange,unit,verifyenter,vouchercode,
+                                     waitenterwh,whname)
+        values (#{id, jdbcType=VARCHAR}, #{alreadynum, jdbcType=INTEGER}, #{approvalnum, jdbcType=VARCHAR},
+                #{arrivalnum, jdbcType=INTEGER}, #{availableamount, jdbcType=INTEGER}, #{batchid, jdbcType=VARCHAR},
+                #{buyer, jdbcType=VARCHAR}, #{commonname, jdbcType=VARCHAR}, #{currentnum, jdbcType=INTEGER},
+                #{disabledate, jdbcType=VARCHAR}, #{helpamount, jdbcType=INTEGER}, #{mah, jdbcType=VARCHAR}, #{officalnum, jdbcType=INTEGER},
+                #{origin, jdbcType=VARCHAR}, #{parentid, jdbcType=VARCHAR}, #{spec, jdbcType=VARCHAR}, #{specmodel, jdbcType=VARCHAR},
+                #{storagecode, jdbcType=VARCHAR}, #{storetype, jdbcType=VARCHAR}, #{temptange, jdbcType=VARCHAR},
+                #{unit, jdbcType=VARCHAR}, #{verifyenter, jdbcType=VARCHAR}, #{vouchercode, jdbcType=VARCHAR},
+                #{waitenterwh, jdbcType=VARCHAR}, #{whname, jdbcType=VARCHAR})
+    </insert>
+
+</mapper>

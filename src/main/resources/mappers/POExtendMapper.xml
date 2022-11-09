@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insp.cloudtest.dao.POExtendMapper">
+    <select id="getRange" parameterType="map" resultType="java.lang.String">
+        select PRODSCOPE from ZGSPSUPARCHI
+        where entid = #{supplier} and orgid = #{company}
+    </select>
+
+    <select id="getTypeIds" parameterType="java.util.List" resultType="java.lang.String">
+        select materialtypeid from bfmaterials
+        where id in
+        <foreach collection="materialids" close=")" item="id" open="(" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+
+</mapper>

@@ -1,0 +1,40 @@
+spring:
+  redis:
+      database: 2
+      host: 127.0.0.1
+      port: 6379
+      password: 123456
+  datasource:
+    url: jdbc:mysql://10.110.90.70:3306/lhyl
+    username: root
+    password: 'Aa123456?!'
+    tomcat:
+#      init-s-q-l: "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;"
+      test-on-borrow: false
+      validation-query: select 1
+      test-on-connect: false
+      test-on-return: false
+      test-while-idle: false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    show-sql: true
+    properties.hibernate:
+      enable_lazy_load_no_trans: false
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      generate_statistics: false
+      cache:
+        use_second_level_cache: false
+        use_query_cache: false
+        region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+    database: mysql
+#web
+server:
+  port: 8082
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
